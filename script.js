@@ -25,6 +25,8 @@ function playGame() {
         playRound(humanSelection, computerSelection);
     }
 
+    printWinner(humanScore, computerScore);
+
     function playRound(human, computer) {
         if (human === "rock") {
             switch (computer) {
@@ -56,4 +58,15 @@ function playGame() {
         }
     }
 
+    function printWinner(human, computer) {
+        if (human > computer) {
+            return console.log("You won :)");
+        } else if (human < computer) {
+            return console.log("Better luck next time :(");
+        } else {
+            return console.log("Tie :|")
+        }
+    }
 }
+
+playGame();
