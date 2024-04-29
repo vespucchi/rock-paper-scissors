@@ -21,5 +21,39 @@ function playGame() {
     {
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
     }
+
+    function playRound(human, computer) {
+        if (human === "rock") {
+            switch (computer) {
+                case "scissors": 
+                    ++humanScore 
+                    break;
+                case "paper": 
+                    ++computerScore;
+                    break;
+            }
+        } else if (human === "paper") {
+            switch (computer) {
+                case "rock": 
+                    ++humanScore 
+                    break;
+                case "scissors":
+                    ++computerScore;
+                    break;
+            }
+        } else if (human === "scissors") {
+            switch (computer) {
+                case "paper": 
+                    ++humanScore 
+                    break;
+                case "rock": 
+                    ++computerScore;
+                    break;
+            }
+        }
+    }
+
 }
