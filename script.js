@@ -10,3 +10,16 @@ function getHumanChoice() {
     let choice = prompt("Choice: ");
     return choice.toLowerCase(); 
 }
+
+function playGame() {
+    let humanSelection;
+    let computerSelection;
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++)
+    {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+    }
+}
