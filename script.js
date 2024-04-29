@@ -7,7 +7,15 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() { 
-    let choice = prompt("Choice: ");
+    let choice;
+
+    while(true) {
+        choice = prompt("Choice (rock / paper / scissors): ").toLowerCase();
+        if (choice === "rock" || choice === "paper" || choice === "scissors") {
+            break;
+        }
+    }
+
     return choice.toLowerCase(); 
 }
 
