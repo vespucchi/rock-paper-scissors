@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Rock, Paper, Scissors</h1>
+    <button>rock</button>
+    <button>paper</button>
+    <button>scissors</button>
+    <br><br>
+    <div class="scoreboard">
+        <table>
+            <tr>
+                <th>Human</th>
+                <th>Computer</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td id="human">0</td>
+                <td id="pc">0</td>
+            </tr>
+        </table>
+
+        <p id="winner"></p>
+    </div>
 </body>
 </html>

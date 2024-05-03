@@ -6,17 +6,12 @@ function getComputerChoice() {
         else if (choice >= 67) { return "scissors"}
 }
 
-function getHumanChoice() { 
-    let choice;
+function updateScoreboard(humanScore, computerScore) {
+    let human = document.querySelector("#human");
+    let pc = document.querySelector("#pc");
 
-    while(true) {
-        choice = prompt("Choice (rock / paper / scissors): ").toLowerCase();
-        if (choice === "rock" || choice === "paper" || choice === "scissors") {
-            break;
-        }
-    }
-
-    return choice.toLowerCase(); 
+    human.textContent = humanScore;
+    pc.textContent = computerScore;
 }
 
 function playGame() {
@@ -24,16 +19,24 @@ function playGame() {
     let computerSelection;
     let humanScore = 0;
     let computerScore = 0;
+    let buttons = document.querySelectorAll("button");
+    
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            if(humanScore !== 5 && computerScore !== 5) {
+                humanSelection = button.textContent;
 
-    for (let i = 0; i < 5; i++)
-    {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
+                computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
-    }
+                playRound(humanSelection, computerSelection);
+                updateScoreboard(humanScore, computerScore);
+                if(humanScore === 5 || computerScore === 5) {
+                    printWinner(humanScore, computerScore);
+                }
+            }
+        })
+    })
 
-    printWinner(humanScore, computerScore);
 
     function playRound(human, computer) {
         if (human === "rock") {
@@ -67,12 +70,12 @@ function playGame() {
     }
 
     function printWinner(human, computer) {
+        let winner = document.querySelector("#winner");
+
         if (human > computer) {
-            return console.log("You won :)");
-        } else if (human < computer) {
-            return console.log("Better luck next time :(");
+            winner.textContent = "You won the game! :)";
         } else {
-            return console.log("Tie :|")
+            winner.textContent = "You lost the game! :(";
         }
     }
 }
